@@ -28,6 +28,82 @@ result review when the assessment is complete.
 - Tailwind CSS 4
 - Vitest
 
+## Project setup instructions
+
+The project is a frontend-only React application. The runnable project is
+inside the `frontend` directory. Node.js 18 or newer is recommended because
+the project uses modern Vite and Tailwind tooling.
+
+Clone the repository and enter the frontend directory:
+
+```bash
+git clone https://github.com/Nikhil24005/Innosoft-project.git
+cd Innosoft-project/frontend
+```
+
+## How to install dependencies
+
+Install the dependencies from the `frontend` directory:
+
+```bash
+npm install
+```
+
+## How to run the project locally
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+Open the URL printed in the terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+To run the automated tests:
+
+```bash
+npm test
+```
+
+## Technologies used
+
+- **React** for the single-page user interface.
+- **JavaScript and JSX** for application logic and components.
+- **Vite** for development, bundling, and production builds.
+- **Tailwind CSS** for utility-first responsive styling.
+- **Vitest** for frontend tests.
+- **Browser localStorage** for saving assessment progress locally.
+- **Local JSON** for the ten assessment questions and explanations.
+
+## Important implementation details
+
+- `frontend/src/App.jsx` contains the assessment UI and the single
+  `useReducer` used to manage status, current question, selected answers,
+  remaining time, and score.
+- `frontend/src/data/questions.json` is the local source for all ten questions,
+  answer options, correct answers, and explanations.
+- The timer dispatches a reducer action every second and automatically submits
+  the assessment when it reaches zero.
+- The current reducer state is serialized to `localStorage` after every state
+  change, allowing progress to be restored after a page refresh.
+- The result screen is rendered on the same page and includes the percentage,
+  correct/incorrect counts, selected answers, correct answers, and explanations.
+- The restart action resets the reducer to its initial state and starts a new
+  attempt.
+- Tailwind is loaded internally through `frontend/src/tailwind.css` and the
+  `@tailwindcss/vite` plugin in `frontend/vite.config.js`; no custom
+  `index.css` file is required.
+
 ## Project structure
 
 ```text
