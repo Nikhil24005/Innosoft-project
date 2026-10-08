@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "question": "Which HTML element is used to define the main heading of a page?",
+    "options": ["<heading>", "<h1>", "<header>", "<title>"],
+    "answer": 1,
+    "explanation": "The h1 element represents the most important heading on a page."
+  },
+  {
+    "id": 2,
+    "question": "Which CSS property changes the text color of an element?",
+    "options": ["font-color", "text-style", "color", "foreground"],
+    "answer": 2,
+    "explanation": "The color property sets the foreground color of text."
+  },
+  {
+    "id": 3,
+    "question": "What does JSON stand for?",
+    "options": ["JavaScript Object Notation", "Java Source Open Network", "Joined Syntax Object Names", "JavaScript Online Notation"],
+    "answer": 0,
+    "explanation": "JSON is short for JavaScript Object Notation, a lightweight data format."
+  },
+  {
+    "id": 4,
+    "question": "Which React hook is designed for managing state with a reducer function?",
+    "options": ["useEffect", "useMemo", "useReducer", "useContext"],
+    "answer": 2,
+    "explanation": "useReducer manages state transitions through a reducer and dispatched actions."
+  },
+  {
+    "id": 5,
+    "question": "Which HTTP status code means a request was successful?",
+    "options": ["200", "301", "404", "500"],
+    "answer": 0,
+    "explanation": "HTTP 200 OK indicates that a request completed successfully."
+  },
+  {
+    "id": 6,
+    "question": "Which JavaScript method creates a new array by transforming every item?",
+    "options": ["forEach", "filter", "reduce", "map"],
+    "answer": 3,
+    "explanation": "map returns a new array containing the results of calling a function on every item."
+  },
+  {
+    "id": 7,
+    "question": "What is the purpose of localStorage in a browser?",
+    "options": ["To store data that persists between browser sessions", "To run server code", "To style a page", "To send email"],
+    "answer": 0,
+    "explanation": "localStorage stores string values locally and keeps them after the browser is closed."
+  },
+  {
+    "id": 8,
+    "question": "Which Git command creates a copy of a remote repository locally?",
+    "options": ["git push", "git clone", "git merge", "git stash"],
+    "answer": 1,
+    "explanation": "git clone downloads a repository and its history to a new local directory."
+  },
+  {
+    "id": 9,
+    "question": "Which type of test checks a small, isolated unit of code?",
+    "options": ["End-to-end test", "Load test", "Unit test", "Smoke test"],
+    "answer": 2,
+    "explanation": "Unit tests focus on a small unit, such as a function or component, in isolation."
+  },
+  {
+    "id": 10,
+    "question": "What does responsive web design aim to achieve?",
+    "options": ["A page that works across different screen sizes", "A faster database", "A private network", "A compiled stylesheet"],
+    "answer": 0,
+    "explanation": "Responsive design adapts layout and controls to different devices and viewport sizes."
+  }
+]
