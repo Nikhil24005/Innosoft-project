@@ -1,61 +1,64 @@
-# Assessly — frontend assessment
+# Assessly
 
-Assessly is a responsive single-page assessment application built with React and
-plain JavaScript. It presents ten frontend fundamentals questions, gives the user ten
-minutes to complete them, persists progress in `localStorage`, and shows a score
-and answer review after submission.
+Assessly is a responsive, single-page assessment application built with
+**React**, **JavaScript/JSX**, **Vite**, and **Tailwind CSS**. It tests frontend
+fundamentals with ten multiple-choice questions and provides an interactive
+result review when the assessment is complete.
 
-## Assessment behavior
+## Features
 
-- Questions are defined in [frontend/src/data/questions.json](./frontend/src/data/questions.json).
-- One `useReducer` in `frontend/src/App.jsx` owns the assessment status, selected
-  answers, active question, timer, and score.
-- The timer dispatches one `TICK` action per second and automatically submits at
-  zero.
-- State is saved under `frontend-assessment-state` after every reducer update,
-  so refreshing the page does not lose progress.
-- The results and review are rendered on the same page; **Restart assessment**
-  clears the reducer state and starts a fresh attempt.
+- Start screen with assessment instructions and duration.
+- Ten locally defined questions stored in JSON.
+- One React `useReducer` manages the full assessment state.
+- Answer selection and question navigation.
+- Ten-minute countdown timer.
+- Automatic submission when the timer reaches zero.
+- Progress saved to `localStorage`, including the current question and answers.
+- Same-page results screen with score percentage.
+- Review section showing selected answers, correct answers, and explanations.
+- Restart assessment action.
+- Responsive layout for desktop, tablet, and mobile screens.
+- Tailwind CSS v4 integrated through the Vite plugin.
 
-## Structure
+## Tech stack
+
+- React 18
+- JavaScript and JSX
+- Vite
+- Tailwind CSS 4
+- Vitest
+
+## Project structure
 
 ```text
 .
-├── frontend/                 # React client application
-│   ├── public/
+├── frontend/
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
 │   └── src/
-│       ├── assets/
-│       ├── data/              # Local assessment question JSON
-│       ├── components/       # Reusable UI components
-│       ├── hooks/            # Reusable React hooks
-│       ├── layouts/          # Page-level layouts
-│       ├── pages/            # Route-level screens
-│       ├── services/         # API clients and remote calls
-│       ├── types/            # Shared frontend types
-│       └── utils/            # Pure helper functions
-├── backend/                  # Express API
-│   └── src/
-│       ├── config/           # Environment and app configuration
-│       ├── controllers/      # HTTP request handlers
-│       ├── middleware/       # Auth, errors, validation, logging
-│       ├── models/           # Persistence models
-│       ├── routes/           # API route definitions
-│       ├── services/         # Business logic
-│       └── utils/            # Backend helpers
-├── .env.example
-└── package.json
+│       ├── App.jsx                  # Assessment UI and useReducer logic
+│       ├── App.test.jsx             # Frontend smoke test
+│       ├── main.jsx                 # React entry point
+│       ├── data/
+│       │   └── questions.json       # Ten questions and explanations
+│       ├── types/
+│       │   └── assessment.js        # Initial reducer state
+│       └── tailwind.css             # Internal Tailwind entry point
+└── README.md
 ```
 
-## Development
+## Run locally
 
 ```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-The frontend runs on `http://localhost:5173` and the API on `http://localhost:4000`.
+Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-To run the frontend checks:
+## Build and test
 
 ```bash
 cd frontend
@@ -63,18 +66,26 @@ npm run build
 npm test
 ```
 
+## State management
+
+The assessment state is kept in `App.jsx` and includes:
+
+- `status`: `ready`, `in-progress`, or `submitted`
+- `currentQuestion`: active question index
+- `answers`: selected answer by question ID
+- `secondsRemaining`: countdown value
+- `score`: calculated score after submission
+
+Every state update is serialized to `localStorage` under the key
+`frontend-assessment-state`. A malformed saved value is ignored and logged,
+allowing a fresh assessment to start safely.
+
 ## GitHub submission
 
-Create an empty public repository on GitHub, then connect and push this project:
+From the project root:
 
 ```bash
-git init
 git add .
-git commit -m "Build assessment SPA"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repository>.git
-git push -u origin main
+git commit -m "Update assessment documentation and structure"
+git push
 ```
-
-Replace the remote URL with the public repository URL created in your GitHub
-account.
